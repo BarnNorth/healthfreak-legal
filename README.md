@@ -4,9 +4,9 @@ Legal documentation and support pages for the Health Freak mobile app.
 
 ## Pages
 
-- [Support](https://yourusername.github.io/healthfreak-legal/)
-- [Privacy Policy](https://yourusername.github.io/healthfreak-legal/privacy.html)
-- [Terms of Service](https://yourusername.github.io/healthfreak-legal/terms.html)
+- [Support](https://barnnorth.github.io/healthfreak-legal/index.html)
+- [Privacy Policy](https://barnnorth.github.io/healthfreak-legal/privacy.html)
+- [Terms of Service](https://barnnorth.github.io/healthfreak-legal/terms.html)
 
 ## About Health Freak
 
