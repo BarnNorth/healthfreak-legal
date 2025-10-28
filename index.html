@@ -54,46 +54,6 @@
             line-height: 1.8;
         }
         
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .btn {
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block;
-        }
-        
-        .btn-primary {
-            background: #4CAF50;
-            color: white;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: #4CAF50;
-            border: 2px solid #4CAF50;
-        }
-        
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            background: #f0f9f0;
-        }
-        
         .section {
             background: white;
             padding: 40px;
@@ -118,14 +78,16 @@
         }
         
         .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-top: 30px;
         }
         
         .step {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 20px;
             padding: 25px;
             background: #f8f9fa;
             border-radius: 12px;
@@ -133,24 +95,31 @@
         }
         
         .step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
         }
         
         .step-number {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            flex-shrink: 0;
+            width: 80px;
+            text-align: center;
+        }
+        
+        .step-content {
+            flex: 1;
         }
         
         .step h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #333;
-            margin: 10px 0;
+            margin: 0 0 8px 0;
         }
         
         .step p {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin: 0;
         }
         
         .features-grid {
@@ -202,29 +171,50 @@
             flex-shrink: 0;
         }
         
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .tips-list {
+            display: flex;
+            flex-direction: column;
             gap: 15px;
             margin-top: 20px;
         }
         
         .tip {
-            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
             background: #fff3cd;
             border-radius: 8px;
             border-left: 4px solid #ffc107;
+            transition: transform 0.2s;
+        }
+        
+        .tip:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(255, 193, 7, 0.2);
+        }
+        
+        .tip-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            width: 60px;
+            text-align: center;
+        }
+        
+        .tip-content {
+            flex: 1;
         }
         
         .tip strong {
             color: #333;
             display: block;
             margin-bottom: 5px;
+            font-size: 1.1rem;
         }
         
         .tip p {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin: 0;
         }
         
@@ -334,8 +324,22 @@
                 padding: 25px 20px;
             }
             
-            .steps {
-                grid-template-columns: 1fr;
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                width: auto;
+            }
+            
+            .tip {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tip-icon {
+                width: auto;
             }
         }
     </style>
@@ -350,10 +354,6 @@
                 Health Freak helps you make informed food choices by instantly analyzing ingredient lists using artificial intelligence. 
                 Simply snap a photo of any food label, and get an instant breakdown of which ingredients are clean and which ones to avoid.
             </p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Download for iOS</a>
-                <a href="#" class="btn btn-secondary">Download for Android</a>
-            </div>
         </div>
 
         <!-- What is Health Freak -->
@@ -372,23 +372,31 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">📸</div>
-                    <h3>Snap a Photo</h3>
-                    <p>Point your camera at any ingredient list on food packaging</p>
+                    <div class="step-content">
+                        <h3>Snap a Photo</h3>
+                        <p>Point your camera at any ingredient list on food packaging</p>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">🤖</div>
-                    <h3>AI Analysis</h3>
-                    <p>Our advanced AI instantly reads and analyzes each ingredient</p>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced AI instantly reads and analyzes each ingredient</p>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">✅</div>
-                    <h3>Get Results</h3>
-                    <p>See which ingredients are clean (green) and which are potentially harmful (red)</p>
+                    <div class="step-content">
+                        <h3>Get Results</h3>
+                        <p>See which ingredients are clean (green) and which are potentially harmful (red)</p>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">📊</div>
-                    <h3>Review History</h3>
-                    <p>Track all your scans and revisit past analyses anytime</p>
+                    <div class="step-content">
+                        <h3>Review History</h3>
+                        <p>Track all your scans and revisit past analyses anytime</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -465,7 +473,7 @@
         <div class="section">
             <h2>🚀 Get Started</h2>
             <ol style="margin-left: 20px; margin-top: 20px; line-height: 2;">
-                <li>Download Health Freak from the App Store or Google Play</li>
+                <li>Download Health Freak from the App Store</li>
                 <li>Create a free account</li>
                 <li>Point your camera at any ingredient list</li>
                 <li>Get instant results!</li>
@@ -491,22 +499,34 @@
         <!-- Tips -->
         <div class="section">
             <h2>💡 Tips for Best Results</h2>
-            <div class="tips-grid">
+            <div class="tips-list">
                 <div class="tip">
-                    <strong>Good lighting</strong>
-                    <p>Ensure the label is well-lit for better AI vision accuracy</p>
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-content">
+                        <strong>Good lighting</strong>
+                        <p>Ensure the label is well-lit for better AI vision accuracy</p>
+                    </div>
                 </div>
                 <div class="tip">
-                    <strong>Hold steady</strong>
-                    <p>Keep your phone stable when capturing the photo</p>
+                    <div class="tip-icon">🤚</div>
+                    <div class="tip-content">
+                        <strong>Hold steady</strong>
+                        <p>Keep your phone stable when capturing the photo</p>
+                    </div>
                 </div>
                 <div class="tip">
-                    <strong>Full view</strong>
-                    <p>Make sure the entire ingredient list is visible</p>
+                    <div class="tip-icon">👁️</div>
+                    <div class="tip-content">
+                        <strong>Full view</strong>
+                        <p>Make sure the entire ingredient list is visible</p>
+                    </div>
                 </div>
                 <div class="tip">
-                    <strong>Clear focus</strong>
-                    <p>Tap to focus if the text appears blurry</p>
+                    <div class="tip-icon">🎯</div>
+                    <div class="tip-content">
+                        <strong>Clear focus</strong>
+                        <p>Tap to focus if the text appears blurry</p>
+                    </div>
                 </div>
             </div>
         </div>
