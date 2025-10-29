@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Freak - Opening App...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .app-store-link {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Opening Health Freak...</h1>
+        <p>If the app doesn't open automatically, make sure you have Health Freak installed.</p>
+        
+        <!-- Uncomment when app is live on App Store -->
+        <!-- <a href="https://apps.apple.com/app/YOUR_APP_ID" class="app-store-link">
+            Download on the App Store
+        </a> -->
+        
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+            Already have the app? Try opening it manually.
+        </p>
+    </div>
+    
+    <script>
+        // Try to open the app with the deep link fallback
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const tokenHash = urlParams.get('token_hash');
+        const type = urlParams.get('type');
+        
+        if (code || tokenHash) {
+            // Build deep link with all parameters
+            let deepLink = 'healthfreak://auth/callback?';
+            const params = new URLSearchParams();
+            
+            if (code) params.append('code', code);
+            if (tokenHash) params.append('token_hash', tokenHash);
+            if (type) params.append('type', type);
+            
+            deepLink += params.toString();
+            
+            console.log('Attempting to open app with:', deepLink);
+            
+            // Try deep link as fallback for development builds
+            window.location.href = deepLink;
+            
+            // If deep link doesn't work after 2 seconds, show message
+            setTimeout(() => {
+                console.log('App did not open with deep link');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
