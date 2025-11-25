@@ -64,6 +64,17 @@
             margin: 0 auto 30px;
             line-height: 1.8;
         }
+
+        .app-store-badge {
+            height: 50px;
+            margin-top: 10px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .app-store-badge:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
         
         .section {
             background: white;
@@ -388,13 +399,20 @@
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
-            <h1>Health Freak <img src="assets/appstore.jpeg" alt="Health Freak" class="hero-icon"></h1>
-            <p class="subtitle">Your AI-Powered Food Ingredient Scanner</p>
-            <p class="description">
-                Health Freak helps you make informed food choices by instantly analyzing ingredient lists using artificial intelligence. 
-                Simply snap a photo of any food label, and get an instant breakdown of which ingredients are clean and which ones to avoid.
-            </p>
-        </div>
+    <h1>Health Freak <img src="assets/appstore.jpeg" alt="Health Freak" class="hero-icon"></h1>
+    <p class="subtitle">Your AI-Powered Food Ingredient Scanner</p>
+    <p class="description">
+        Health Freak helps you make informed food choices by instantly analyzing ingredient lists using artificial intelligence. 
+        Simply snap a photo of any food label, and get an instant breakdown of which ingredients are clean and which ones to avoid.
+    </p>
+    <a href="https://apps.apple.com/us/app/health-freak/id6753876938" target="_blank" rel="noopener noreferrer">
+        <img 
+            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+            alt="Download on the App Store" 
+            class="app-store-badge"
+        >
+    </a>
+</div>
 
         <!-- What is Health Freak -->
         <div class="section">
